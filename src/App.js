@@ -5,6 +5,7 @@ import "./App.css";
 import NavBar from "./components/navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createEmitAndSemanticDiagnosticsBuilderProgram } from "typescript";
 
 // function App() {
 //   return (
@@ -32,7 +33,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
-    page: "home",
+    page: 1,
   };
 
   message = () => {
@@ -50,6 +51,7 @@ class App extends Component {
           page={this.state.page}
           setPage={this.setPage}
         />
+
         <div className="container">{this.currentPage()}</div>
         <div className="container">
           <header className="App-header">
@@ -71,28 +73,47 @@ class App extends Component {
     );
   }
 
+  // currentPage() {
+  //   return this.state.page;
+  // }
+
   setPage = (page) => {
     console.log("Setting page --> ", page);
     this.setState({ page: page });
   };
 
-  homePage = () => {
-    console.log("Our home page");
+  homePage() {
+    console.log("Welcome to our home page");
 
-    this.setState({ page: 1 });
-  };
+    return <div className="container">Welcome to our home page</div>;
+  }
 
-  aboutPage = () => {
-    console.log("Our about us page");
-    this.setState({ page: 1 });
-  };
+  aboutPage() {
+    return <div className="container">We are currently building up</div>;
+  }
+
+  // aboutPage = () => {
+  //   console.log("Our about us page");
+  //   this.setState({ page: 1 });
+  // };
 
   currentPage() {
-    return this.state.page === "home" ? (
-      <h1>Home Page</h1>
-    ) : (
-      <h1>About Page</h1>
-    );
+    switch (this.state.page) {
+      case 0:
+        return <h1>Admin Page</h1>;
+        break;
+      case 1:
+        return this.homePage();
+        break;
+      case 2:
+        return this.aboutPage();
+        break;
+      case 3:
+        return <h1>Third Page</h1>;
+        break;
+      default:
+        return <h1>First Page</h1>;
+    }
   }
 
   // homePage() {

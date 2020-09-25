@@ -66,6 +66,7 @@ class NavBar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
+          fdfssd
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -73,7 +74,7 @@ class NavBar extends Component {
             <li className="nav-item active">
               <a
                 className="nav-link"
-                onClick={() => this.props.setPage("home")}
+                onClick={() => this.props.setPage(1)}
                 href="#"
               >
                 Home
@@ -82,7 +83,7 @@ class NavBar extends Component {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => this.props.setPage("aboutUs")}
+                onClick={() => this.props.setPage(2)}
                 href="#"
               >
                 About Us
@@ -91,7 +92,7 @@ class NavBar extends Component {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => this.props.setPage("ourIdea")}
+                onClick={() => this.props.setPage(3)}
                 href="#"
               >
                 Our Idea
@@ -109,7 +110,12 @@ class NavBar extends Component {
             </li>
           </ul>
         </div>
-        <span>Span: {this.props.page}</span>
+        <button type="button" className="btn btn-dark m-2">
+          Login
+        </button>
+        <button type="button" className="btn btn-dark m-2">
+          Log Out
+        </button>
       </nav>
     );
   }
